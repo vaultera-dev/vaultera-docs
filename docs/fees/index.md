@@ -1,0 +1,54 @@
+# Fees
+
+`FeeManager` is the protocol singleton that registers fee modules and invokes them at defined vault lifecycle hooks.
+
+## Supported fee modules
+
+| Fee | Scope | Current rate | Settlement mechanism | Recipient |
+|---|---|---:|---|---|
+| Entry fee | Protocol | 25 bps (0.25%) | Direct share transfer | Vaultera treasury |
+| Exit fee | Protocol | 25 bps (0.25%) | Direct share transfer | Vaultera treasury |
+| Management fee | Per vault | 25 bps (0.25%) | Share minting based on continuous accrual | Vault manager |
+
+The active on-chain configuration is authoritative. Interfaces should read the configured module settings before presenting estimates.
+
+## Entry fee
+
+The entry fee is calculated from gross shares minted during deposit settlement. At 25 bps, a deposit worth **1,000 USDC** at the settlement price produces a fee equivalent to:
+
+```text
+1,000 × 0.0025 = 2.50 USDC equivalent
+```
+
+The treasury receives **2.50 USDC equivalent** in share tokens, while the investor receives shares representing **997.50 USDC equivalent**, before any other applicable adjustment.
+
+## Exit fee
+
+The exit fee is calculated from redeemed shares during redemption settlement. At 25 bps, a redemption worth **1,000 USDC** at the settlement price produces a fee equivalent to:
+
+```text
+1,000 × 0.0025 = 2.50 USDC equivalent
+```
+
+The treasury receives **2.50 USDC equivalent** in share tokens, while the investor receives **997.50 USDC equivalent** in assets, before any other applicable adjustment.
+
+## Management fee
+
+The management fee uses a continuous, per-second scaled rate. Accrued fees are realized through share minting when the applicable fee hook runs, compensating the vault manager through dilution rather than an immediate asset transfer.
+
+At a configured annual rate of 25 bps, a constant **1,000 USDC** vault value accrues approximately:
+
+```text
+Full year: 1,000 × 0.0025 = 2.50 USDC equivalent
+30 days:   1,000 × 0.0025 × 30 ÷ 365 ≈ 0.2055 USDC equivalent
+```
+
+The actual amount depends on elapsed time, vault value, share price, and the active module configuration at settlement.
+
+## Share-based collection
+
+Entry, exit, and management fees settle in vault share tokens. Treasury or manager processes can later swap collected shares into supported assets such as USDC, WETH, or WBTC, subject to vault liquidity, adapter authorization, and active policies.
+
+## Fee lifecycle
+
+`FeeManager` supports hooks for continuous accrual, pre-settlement processing, deposit fulfillment, redemption fulfillment, and post-deposit fulfillment. A module is invoked only when it is registered and enabled for the applicable protocol or vault scope.
