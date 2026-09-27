@@ -1,0 +1,15 @@
+{
+  "name": "vaultera-docs",
+  "version": "1.0.0",
+  "description": "Official documentation for the Vaultera protocol",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "private": true,
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
