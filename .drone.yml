@@ -1,0 +1,38 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+  - name: install
+    image: node:20-alpine
+    commands:
+      - npm ci
+
+  - name: build
+    image: node:20-alpine
+    commands:
+      - npm run docs:build
+
+  - name: deploy
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: github_username
+      password:
+        from_secret: github_token
+      pages_directory: docs/.vitepress/dist
+      copy_contents: true
+      delete: true
+      target_branch: gh-pages
+    when:
+      branch:
+        - main
+      event:
+        - push
+
+trigger:
+  branch:
+    - main
+  event:
+    - push
+    - pull_request
