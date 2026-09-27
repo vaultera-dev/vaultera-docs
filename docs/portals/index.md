@@ -1,17 +1,19 @@
-# Product Portals
+# Portals
 
-## Admin portal
+Vaultera provides dedicated experiences for protocol operators, vault managers, and investors.
 
-The admin experience supports protocol and vault operations such as role administration, vault creation, policy configuration, fee configuration, signer management, pause controls, settlement operations, and rebalancing.
+## Admin Portal
 
-Operational permissions must map to on-chain roles. Interfaces should display the connected account, required role, transaction target, and resulting state change before submission.
+The Admin Portal supports protocol and vault operations, including vault creation, role administration, policy and fee configuration, signer management, emergency pause controls, settlement monitoring, and rebalancing.
 
-## Investor portal
+[Explore the Admin Portal documentation](/portals/admin)
 
-The investor experience covers wallet connection, vault discovery, vault details, deposit and redemption requests, quote acceptance, pending-request status, cancellation, and claims.
+## Investor Portal
 
-The portal should clearly distinguish requested, escrowed, accepted, settled, claimable, claimed, and cancelled states. It should also surface supported assets, current policies, fees, pricing-window timing, and transfer restrictions.
+The Investor Portal supports vault discovery, deposits, redemptions, quote acceptance, request tracking, cancellation, claims, and portfolio monitoring.
+
+[Explore the Investor Portal documentation](/portals/investor)
 
 ## Supporting services
 
-Portal applications rely on an indexer for readable state and history, a quoter for NAV and asset prices, and transaction relaying or automation where enabled. On-chain state remains authoritative.
+Both portals use indexed blockchain data for readable status and history. The quotation service supplies pricing-window data, while on-chain contracts remain the authoritative source for balances, permissions, requests, settlement, and claims.
