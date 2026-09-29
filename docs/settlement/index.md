@@ -20,6 +20,7 @@ The quote binds the vault, window, NAV per share, asset prices, deadline, total 
 ```mermaid
 sequenceDiagram
   actor Investor
+  actor Operator as Operator / keeper
   participant Entry as VaultEntryPoint
   participant Escrow as VaultEscrow
   participant Vault as VaultManager
@@ -29,8 +30,9 @@ sequenceDiagram
   Entry->>Escrow: Escrow assets or shares
   Entry->>Vault: Record pending request
   Investor->>Investor: Sign quote acceptance
+  Operator->>Vault: settleWindow(quote, acceptances)
   Vault->>Pricing: Record and validate operator quote
-  Vault->>Verify: Verify investor acceptance
+  Vault->>Verify: Verify investor acceptances
   Vault->>Escrow: Move settlement assets or shares
   Vault->>Vault: Apply fees and mint or burn shares
   Vault-->>Investor: Auto-release or mark claimable

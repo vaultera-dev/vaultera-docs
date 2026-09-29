@@ -11,6 +11,14 @@ The Investor Portal is the end-user interface for discovering vaults, depositing
 5. Sign the EIP-712 acceptance if the quote is acceptable.
 6. Track settlement and claim assets or shares when required.
 
+## Deposit request
+
+The portal presents a **"Buy Shares"** interface where investors convert supported tokens into vault shares at the current share price. This is the first step of the deposit flow.
+
+The screen shows a **"Buy Shares" / "Sell Shares"** toggle, the asset to spend (for example, USDC with an editable amount and balance), and the vault shares to receive (for example, **Vaultera Yield Vault** shares). Before confirming, the investor reviews key terms such as the lock-up period, management fee, and the share-price conversion. The investor must agree to the **Terms & Conditions**, then clicks **Buy** to submit the request or **Cancel** to abort.
+
+![Investor Portal deposit request screen showing Buy Shares form](/portal-screenshots/Invetor-deposit-request.png)
+
 ## Request states
 
 The portal should distinguish each request state clearly:
