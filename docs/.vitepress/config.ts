@@ -102,12 +102,19 @@ export default withMermaid(defineConfig({
         items: [
           { text: 'Overview', link: '/portals/' },
           { text: 'Admin Portal', link: '/portals/admin' },
-          { text: 'Investor Portal', link: '/portals/investor' }
+          {
+            text: 'Investor Portal',
+            link: '/portals/investor',
+            items: [
+              { text: 'Authentication', link: '/portals/authentication' }
+            ]
+          }
         ]
       },
       {
         text: 'Project',
         items: [
+          { text: 'Roadmap', link: '/roadmap' },
           { text: 'Contributing', link: '/contributing/' }
         ]
       }

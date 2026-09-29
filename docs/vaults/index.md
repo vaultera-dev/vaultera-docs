@@ -45,6 +45,17 @@ stateDiagram-v2
 5. Settlement transfers the assets into the vault and calculates shares.
 6. The share tokens are auto-released or become claimable.
 
+```mermaid
+flowchart LR
+  A[Investor approves asset] --> B[requestDeposit]
+  B --> C[Assets escrowed]
+  C --> D[Pending deposit recorded]
+  D --> E[Investor signs Acceptance]
+  E --> F[Operator settles window]
+  F --> G[Shares calculated and minted]
+  G --> H[Shares released or claimable]
+```
+
 ## Redemption flow
 
 1. The investor submits share tokens through an entry point.
@@ -52,6 +63,16 @@ stateDiagram-v2
 3. The investor accepts a signed pricing-window quote.
 4. Settlement burns the escrowed shares and calculates assets owed.
 5. Assets are auto-released or become claimable.
+
+```mermaid
+flowchart LR
+  A[Investor calls requestRedeem] --> B[Shares escrowed]
+  B --> C[Pending redemption recorded]
+  C --> D[Investor signs Acceptance]
+  D --> E[Operator settles window]
+  E --> F[Shares burned and assets calculated]
+  F --> G[Assets released or claimable]
+```
 
 ## Cancellation and escrow
 
