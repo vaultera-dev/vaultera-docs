@@ -57,8 +57,8 @@ Sepolia contracts are for development and testing. Verify the connected network 
 
 ## Mock Assets
 
-| Contract | Address |
-|---|---|
-| `MockUSDC` | <AddressLink address="0x9095701C31b1c58826260E706fD48e2a12928d3c" explorer-url="https://sepolia.etherscan.io/address/0x9095701C31b1c58826260E706fD48e2a12928d3c" /> |
-| `MockWETH` | <AddressLink address="0xD095250d4f2E0B23BF49DF7A967f94857853fF99" explorer-url="https://sepolia.etherscan.io/address/0xD095250d4f2E0B23BF49DF7A967f94857853fF99" /> |
-| `MockWBTC` | <AddressLink address="0xD7Ca9E27C5616c34cc6ff4D98Fd314311fb53f5B" explorer-url="https://sepolia.etherscan.io/address/0xD7Ca9E27C5616c34cc6ff4D98Fd314311fb53f5B" /> |
+| Contract | Symbol | Address |
+|---|---|---|
+| `MockUSDC` | <img class="token-icon" src="/tokens/usdc.svg" alt="" width="20" height="20" /> `USDC` | <AddressLink address="0x9095701C31b1c58826260E706fD48e2a12928d3c" explorer-url="https://sepolia.etherscan.io/address/0x9095701C31b1c58826260E706fD48e2a12928d3c" /> |
+| `MockWETH` | <img class="token-icon" src="/tokens/weth.svg" alt="" width="20" height="20" /> `WETH` | <AddressLink address="0xD095250d4f2E0B23BF49DF7A967f94857853fF99" explorer-url="https://sepolia.etherscan.io/address/0xD095250d4f2E0B23BF49DF7A967f94857853fF99" /> |
+| `MockWBTC` | <img class="token-icon" src="/tokens/wbtc.svg" alt="" width="20" height="20" /> `WBTC` | <AddressLink address="0xD7Ca9E27C5616c34cc6ff4D98Fd314311fb53f5B" explorer-url="https://sepolia.etherscan.io/address/0xD7Ca9E27C5616c34cc6ff4D98Fd314311fb53f5B" /> |
